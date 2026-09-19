@@ -126,7 +126,86 @@ Dashboard (Leaflet.js + Chart.js)
       ├──► KPI recalculés
       └──► Alertes affichées
 ```
+## 📊 Diagramme de cas d'utilisation UML
 
+```mermaid
+flowchart LR
+    Visiteur(["👤 Visiteur"])
+    Conducteur(["🚛 Conducteur"])
+    Superviseur(["👔 Superviseur"])
+    Admin(["👑 Administrateur"])
+
+    subgraph SYS["🚛 Système FleetIoT — Simandou 2040"]
+
+        subgraph VIS["Accès public"]
+            UC1(["Consulter page accueil"])
+            UC2(["Utiliser formulaire contact"])
+            UC3(["Accéder à la connexion"])
+        end
+
+        subgraph COND["Espace Conducteur"]
+            UC4(["Se connecter"])
+            UC5(["Consulter ses missions"])
+            UC6(["Pointer arrivée/pause/départ"])
+            UC7(["Suivre progression GPS"])
+            UC8(["Suivre ses formations"])
+            UC9(["Passer un quiz"])
+            UC10(["Télécharger attestation PDF"])
+        end
+
+        subgraph SUP["Espace Superviseur"]
+            UC11(["Consulter tableau de bord"])
+            UC12(["Visualiser véhicules sur carte"])
+            UC13(["Consulter et traiter alertes"])
+            UC14(["Gérer ses missions"])
+            UC15(["Voir pointage conducteurs"])
+            UC16(["Suivre formations conducteurs"])
+        end
+
+        subgraph ADM["Espace Administrateur"]
+            UC17(["Gérer véhicules et conducteurs"])
+            UC18(["Gérer comptes superviseurs"])
+            UC19(["Contrôler simulateur IoT"])
+            UC20(["Générer rapports PDF/CSV"])
+            UC21(["Envoyer rapport investisseur"])
+            UC22(["Paramétrer seuils alertes"])
+            UC23(["Créer formations Academy"])
+            UC24(["Consulter journal audit"])
+        end
+
+    end
+
+    Visiteur --> UC1
+    Visiteur --> UC2
+    Visiteur --> UC3
+
+    Conducteur --> UC4
+    Conducteur --> UC5
+    Conducteur --> UC6
+    Conducteur --> UC7
+    Conducteur --> UC8
+    Conducteur --> UC9
+    Conducteur --> UC10
+
+    Superviseur --> UC11
+    Superviseur --> UC12
+    Superviseur --> UC13
+    Superviseur --> UC14
+    Superviseur --> UC15
+    Superviseur --> UC16
+
+    Admin --> UC17
+    Admin --> UC18
+    Admin --> UC19
+    Admin --> UC20
+    Admin --> UC21
+    Admin --> UC22
+    Admin --> UC23
+    Admin --> UC24
+
+    Superviseur -.->|include| Conducteur
+    Admin -.->|extend| Superviseur
+```
 ## 👥 Hiérarchie des rôles
 
 ```mermaid
