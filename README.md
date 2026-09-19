@@ -27,18 +27,17 @@ Application web de gestion de flotte (minier) IoT développée pour le corridor 
    cp includes/db.example.php includes/db.php
    cp includes/mailer.example.php includes/mailer.php
 
-3. Modifier includes/db.php avec vos identifiants
 
-4. Importer la base de données
+3. Importer la base de données
    mysql -u root -p fleet_iot_db < database/fleet_iot_db.sql
 
-5. Lancer sur XAMPP → http://localhost/fleet_iot
+4. Lancer sur XAMPP → http://localhost/fleet_iot
 
 ##  Structure
-## 📁 Structure du projet
+##  Structure du projet
 
 ```
-FleetIoT-Simandou-2040/
+FleetIoT-Gestion de flotte/
 ├── 📂 admin/                    # Pages administrateur
 ├── 📂 api/                      # Endpoints IoT REST
 ├── 📂 assets/                   # CSS, JS, images
