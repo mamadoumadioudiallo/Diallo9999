@@ -37,7 +37,6 @@ Application web de gestion de flotte (minier) IoT développée pour le corridor 
 ##  Structure
 ## 📁 Structure du projet
 
-## 📁 Structure du projet
 
 ```
 FleetIoT-Simandou-2040/
@@ -63,7 +62,7 @@ FleetIoT-Simandou-2040/
 ├── 📄 verification_2fa.php      # Double authentification
 ├── 📄 composer.json             # Dépendances PHP
 └── 📄 README.md                 # Documentation
-```s
+```
 ## Auteur
 Mamadou Madiou Diallo — mamadoumadioudiallo@github — dmamadoumadiou61@gmail.com
 
