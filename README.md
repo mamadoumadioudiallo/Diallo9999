@@ -63,13 +63,15 @@ FleetIoT-Simandou-2040/
 └── 📄 README.md                 # Documentation
 ```
 
-##  Architecture du système
-```
+## 🏗️ Architecture du système
+
 <div align="center">
+
+<pre>
 ┌─────────────────────────────────────────────────────────┐
 │                    FLEETIOT SYSTEM                       │
 ├─────────────┬──────────────────┬────────────────────────┤
-│    ADMIN  │   SUPERVISEUR  │     CONDUCTEUR       │
+│   👑 ADMIN  │  👔 SUPERVISEUR  │    🚛 CONDUCTEUR       │
 ├─────────────┴──────────────────┴────────────────────────┤
 │                    APPLICATION WEB PHP                   │
 │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌───────────┐  │
@@ -86,11 +88,10 @@ FleetIoT-Simandou-2040/
 │                  BOÎTIERS IOT (4G/GPS)                   │
 │     GPS · Moteur · Carburant · TPMS · Chargement        │
 └─────────────────────────────────────────────────────────┘
+</pre>
 
 </div>
-```
 
-x
 ##  Flux de données IoT
 
 ```
