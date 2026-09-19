@@ -64,7 +64,7 @@ FleetIoT-Simandou-2040/
 ```
 
 ##  Architecture du système
-
+```
 <div align="center">
 ┌─────────────────────────────────────────────────────────┐
 │                    FLEETIOT SYSTEM                       │
@@ -86,8 +86,9 @@ FleetIoT-Simandou-2040/
 │                  BOÎTIERS IOT (4G/GPS)                   │
 │     GPS · Moteur · Carburant · TPMS · Chargement        │
 └─────────────────────────────────────────────────────────┘
-<div align="center">
 
+</div>
+```
 
 x
 ##  Flux de données IoT
