@@ -127,26 +127,38 @@ Dashboard (Leaflet.js + Chart.js)
       └──► Alertes affichées
 ```
 
-##  Hiérarchie des rôles
+## 👥 Hiérarchie des rôles
 
-```
-             ADMIN
-           /        \
-          /          \
-   Toute la flotte    Rapports investisseurs
-   Configuration      Journal d'audit
-          │
-          ▼
-     SUPERVISEUR
-    /              \
-Ses véhicules    Ses conducteurs
-Ses missions     Ses formations
-          │
-          ▼
-      CONDUCTEUR
-    /              \
-Ses missions    Son pointage
-Ses formations  Ses attestations
+```mermaid
+classDiagram
+    class ADMIN {
+        +Toute la flotte
+        +Rapports investisseurs
+        +Configuration système
+        +Journal d audit
+        +Gestion superviseurs
+        +Sauvegarde base données
+    }
+
+    class SUPERVISEUR {
+        +Ses véhicules assignés
+        +Ses conducteurs
+        +Ses missions
+        +Ses formations
+        +Pointage de ses employés
+        +Alertes de sa flotte
+    }
+
+    class CONDUCTEUR {
+        +Ses missions assignées
+        +Son pointage GPS
+        +Ses formations
+        +Ses attestations PDF
+        +Progression trajet GPS
+    }
+
+    ADMIN --|> SUPERVISEUR : Supervise
+    SUPERVISEUR --|> CONDUCTEUR : Gère
 ```
 
 ##  Flux d'une mission
