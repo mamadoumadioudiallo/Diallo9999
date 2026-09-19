@@ -126,16 +126,16 @@ Dashboard (Leaflet.js + Chart.js)
       ├──► KPI recalculés
       └──► Alertes affichées
 ```
-## 📊 Diagramme de cas d'utilisation UML
+##  Diagramme de cas d'utilisation UML
 
 ```mermaid
 flowchart LR
-    Visiteur(["👤 Visiteur"])
-    Conducteur(["🚛 Conducteur"])
-    Superviseur(["👔 Superviseur"])
-    Admin(["👑 Administrateur"])
+    Visiteur([" Visiteur"])
+    Conducteur([" Conducteur"])
+    Superviseur([" Superviseur"])
+    Admin([" Administrateur"])
 
-    subgraph SYS["🚛 Système FleetIoT — Simandou 2040"]
+    subgraph SYS[" Système FleetIoT — Simandou 2040"]
 
         subgraph VIS["Accès public"]
             UC1(["Consulter page accueil"])
@@ -205,39 +205,6 @@ flowchart LR
 
     Superviseur -.->|include| Conducteur
     Admin -.->|extend| Superviseur
-```
-## 👥 Hiérarchie des rôles
-
-```mermaid
-classDiagram
-    class ADMIN {
-        +Toute la flotte
-        +Rapports investisseurs
-        +Configuration système
-        +Journal d audit
-        +Gestion superviseurs
-        +Sauvegarde base données
-    }
-
-    class SUPERVISEUR {
-        +Ses véhicules assignés
-        +Ses conducteurs
-        +Ses missions
-        +Ses formations
-        +Pointage de ses employés
-        +Alertes de sa flotte
-    }
-
-    class CONDUCTEUR {
-        +Ses missions assignées
-        +Son pointage GPS
-        +Ses formations
-        +Ses attestations PDF
-        +Progression trajet GPS
-    }
-
-    ADMIN --|> SUPERVISEUR : Supervise
-    SUPERVISEUR --|> CONDUCTEUR : Gère
 ```
 
 ##  Flux d'une mission
