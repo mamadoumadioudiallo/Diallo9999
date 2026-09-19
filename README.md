@@ -25,9 +25,10 @@ Application web de gestion de flotte (minier) IoT développée pour le corridor 
 > Pour une démonstration ou un accès à la plateforme,
 > contactez-moi directement :
 
-📧 **Email :** dmamadoumadiou61@gmail.com  
-💼 **LinkedIn :** [Mamadou Madiou Diallo](https://www.linkedin.com/in/mamadou-madiou-diallo-806a01202?utm_source=share_via&utm_content=profile&utm_medium=member_ios)
-🐙 **GitHub :** [mamadoumadioudiallo](https://github.com/mamadoumadioudiallo)
+ **Email :** dmamadoumadiou61@gmail.com  
+ **LinkedIn :** [Mamadou Madiou Diallo](https://www.linkedin.com/in/mamadou-madiou-diallo-806a01202?utm_source=share_via&utm_content=profile&utm_medium=member_ios)
+ 
+ **GitHub :** [mamadoumadioudiallo](https://github.com/mamadoumadioudiallo)
 
 
 ##  Structure du projet
