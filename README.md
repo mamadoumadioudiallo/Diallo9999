@@ -225,5 +225,6 @@ Mamadou Madiou Diallo — mamadoumadioudiallo@github — dmamadoumadiou61@gmail.
 
 ##  Licence
 MIT License
+
 © 2026 Mamadou Madiou Diallo — Tous droits réservés.
 Ce projet ne peut pas être réutilisé sans autorisation explicite.
