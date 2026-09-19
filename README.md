@@ -37,7 +37,6 @@ Application web de gestion de flotte (minier) IoT développée pour le corridor 
 ##  Structure
 ## 📁 Structure du projet
 
-
 ```
 FleetIoT-Simandou-2040/
 ├── 📂 admin/                    # Pages administrateur
@@ -63,6 +62,94 @@ FleetIoT-Simandou-2040/
 ├── 📄 composer.json             # Dépendances PHP
 └── 📄 README.md                 # Documentation
 ```
+
+## 🏗️ Architecture du système
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    FLEETIOT SYSTEM                       │
+├─────────────┬──────────────────┬────────────────────────┤
+│   👑 ADMIN  │  👔 SUPERVISEUR  │    🚛 CONDUCTEUR       │
+├─────────────┴──────────────────┴────────────────────────┤
+│                    APPLICATION WEB PHP                   │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌───────────┐  │
+│  │   GPS    │ │ Missions │ │Formations│ │ Pointage  │  │
+│  │ Leaflet  │ │Notification│ │  Quiz  │ │   IoT     │  │
+│  └──────────┘ └──────────┘ └──────────┘ └───────────┘  │
+├─────────────────────────────────────────────────────────┤
+│                    API REST (PHP)                        │
+│         api/ingest.php ──► api/telemetrie.php           │
+├─────────────────────────────────────────────────────────┤
+│                 BASE DE DONNÉES MySQL                    │
+│              15+ tables · PDO · MariaDB                  │
+├─────────────────────────────────────────────────────────┤
+│                  BOÎTIERS IOT (4G/GPS)                   │
+│     GPS · Moteur · Carburant · TPMS · Chargement        │
+└─────────────────────────────────────────────────────────┘
+```
+## 📡 Flux de données IoT
+
+```
+Boîtier GPS/IoT
+      │
+      │ HTTP POST (JSON) toutes les 5s
+      ▼
+api/ingest.php
+      │
+      ├──► Table `telemetrie` (MySQL)
+      │
+      ├──► evaluerAlertesVehicule()
+      │         │
+      │         └──► Table `alertes`
+      │
+      ▼
+api/telemetrie.php
+      │
+      │ Polling toutes les 5s
+      ▼
+Dashboard (Leaflet.js + Chart.js)
+      │
+      ├──► Carte GPS mise à jour
+      ├──► KPI recalculés
+      └──► Alertes affichées
+```
+
+## 👥 Hiérarchie des rôles
+
+```
+            👑 ADMIN
+           /        \
+          /          \
+   Toute la flotte    Rapports investisseurs
+   Configuration      Journal d'audit
+          │
+          ▼
+     👔 SUPERVISEUR
+    /              \
+Ses véhicules    Ses conducteurs
+Ses missions     Ses formations
+          │
+          ▼
+     🚛 CONDUCTEUR
+    /              \
+Ses missions    Son pointage
+Ses formations  Ses attestations
+```
+
+## 🔄 Flux d'une mission
+
+```mermaid
+graph TD
+    A[Admin/Sup crée une mission] --> B[vue_conducteur = 0]
+    B --> C[Notification conducteur 🔔]
+    C --> D{Conducteur consulte}
+    D --> E[Marque comme lu]
+    E --> F[vue_conducteur = 1]
+    F --> G[✅ Lu par conducteur visible côté Admin/Sup]
+    D --> H[Suivi progression GPS 🚛]
+    H --> I[Mission terminée]
+```
+
 ## Auteur
 Mamadou Madiou Diallo — mamadoumadioudiallo@github — dmamadoumadiou61@gmail.com
 
