@@ -135,7 +135,7 @@ flowchart LR
     Superviseur([" Superviseur"])
     Admin([" Administrateur"])
 
-    subgraph SYS[" Système Internet of Things pour la gestion intelligente des flottes de
+    subgraph SYS[" Système IoT pour la gestion intelligente des flottes de
 transport minier"]
 
         subgraph VIS["Accès public"]
