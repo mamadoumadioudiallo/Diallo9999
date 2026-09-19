@@ -63,34 +63,42 @@ FleetIoT-Simandou-2040/
 └── 📄 README.md                 # Documentation
 ```
 
-## 🏗️ Architecture du système
+##  Architecture du système
 
-<div align="center">
+```mermaid
+flowchart TD
+    subgraph ROLES[" Interfaces Utilisateurs"]
+        A[" ADMIN"]
+        B[" SUPERVISEUR"]
+        C[" CONDUCTEUR"]
+    end
 
-<pre>
-┌─────────────────────────────────────────────────────────┐
-│                    FLEETIOT SYSTEM                       │
-├─────────────┬──────────────────┬────────────────────────┤
-│   👑 ADMIN  │  👔 SUPERVISEUR  │    🚛 CONDUCTEUR       │
-├─────────────┴──────────────────┴────────────────────────┤
-│                    APPLICATION WEB PHP                   │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌───────────┐  │
-│  │   GPS    │ │ Missions │ │Formations│ │ Pointage  │  │
-│  │ Leaflet  │ │Notification│ │  Quiz  │ │   IoT     │  │
-│  └──────────┘ └──────────┘ └──────────┘ └───────────┘  │
-├─────────────────────────────────────────────────────────┤
-│                    API REST (PHP)                        │
-│         api/ingest.php ──► api/telemetrie.php           │
-├─────────────────────────────────────────────────────────┤
-│                 BASE DE DONNÉES MySQL                    │
-│              15+ tables · PDO · MariaDB                  │
-├─────────────────────────────────────────────────────────┤
-│                  BOÎTIERS IOT (4G/GPS)                   │
-│     GPS · Moteur · Carburant · TPMS · Chargement        │
-└─────────────────────────────────────────────────────────┘
-</pre>
+    subgraph APP[" Application Web PHP"]
+        D[" GPS\nLeaflet.js"]
+        E[" Missions\nNotifications"]
+        F[" Formations\nQuiz"]
+        G[" Pointage\nIoT"]
+        H[" Rapports\nPDF & Email"]
+        I[" Alertes\nAutomatiques"]
+    end
 
-</div>
+    subgraph API[" API REST PHP"]
+        J["api/ingest.php ──► api/telemetrie.php"]
+    end
+
+    subgraph DB[" Base de Données MySQL"]
+        K["15+ tables · PDO · MariaDB"]
+    end
+
+    subgraph IOT[" Boîtiers IoT 4G/GPS"]
+        L["GPS · Moteur · Carburant · TPMS · Chargement"]
+    end
+
+    ROLES --> APP
+    APP --> API
+    API --> DB
+    IOT -->|"Toutes les 5s"| API
+```
 
 ##  Flux de données IoT
 
