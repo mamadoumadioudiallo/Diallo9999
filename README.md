@@ -21,7 +21,7 @@ Application web de gestion de flotte (minier) IoT développée pour le corridor 
 
 ##  Installation
 1. Cloner le repository
-   git clone Gestion de flotte : https://github.com/mamadoumadioudiallo/Diallo9999.git
+   git clone Gestion de flotte : https://github.com/mamadoumadioudiallo/Systme-Internet-of-Things-pour-la-gestion-intelligente-des-flottes-de-transport-minier.git
 
 2. Copier les fichiers de config
    cp includes/db.example.php includes/db.php
