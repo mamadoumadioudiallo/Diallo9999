@@ -63,13 +63,13 @@ FleetIoT-Simandou-2040/
 └── 📄 README.md                 # Documentation
 ```
 
-## 🏗️ Architecture du système
-
+##  Architecture du système
+<div align="center">
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                    FLEETIOT SYSTEM                       │
 ├─────────────┬──────────────────┬────────────────────────┤
-│   👑 ADMIN  │  👔 SUPERVISEUR  │    🚛 CONDUCTEUR       │
+│    ADMIN  │   SUPERVISEUR  │     CONDUCTEUR       │
 ├─────────────┴──────────────────┴────────────────────────┤
 │                    APPLICATION WEB PHP                   │
 │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌───────────┐  │
@@ -87,7 +87,9 @@ FleetIoT-Simandou-2040/
 │     GPS · Moteur · Carburant · TPMS · Chargement        │
 └─────────────────────────────────────────────────────────┘
 ```
-## 📡 Flux de données IoT
+
+</div>
+##  Flux de données IoT
 
 ```
 Boîtier GPS/IoT
@@ -114,39 +116,39 @@ Dashboard (Leaflet.js + Chart.js)
       └──► Alertes affichées
 ```
 
-## 👥 Hiérarchie des rôles
+##  Hiérarchie des rôles
 
 ```
-            👑 ADMIN
+             ADMIN
            /        \
           /          \
    Toute la flotte    Rapports investisseurs
    Configuration      Journal d'audit
           │
           ▼
-     👔 SUPERVISEUR
+     SUPERVISEUR
     /              \
 Ses véhicules    Ses conducteurs
 Ses missions     Ses formations
           │
           ▼
-     🚛 CONDUCTEUR
+      CONDUCTEUR
     /              \
 Ses missions    Son pointage
 Ses formations  Ses attestations
 ```
 
-## 🔄 Flux d'une mission
+##  Flux d'une mission
 
 ```mermaid
 graph TD
     A[Admin/Sup crée une mission] --> B[vue_conducteur = 0]
-    B --> C[Notification conducteur 🔔]
+    B --> C[Notification conducteur ]
     C --> D{Conducteur consulte}
     D --> E[Marque comme lu]
     E --> F[vue_conducteur = 1]
-    F --> G[✅ Lu par conducteur visible côté Admin/Sup]
-    D --> H[Suivi progression GPS 🚛]
+    F --> G[ Lu par conducteur visible côté Admin/Sup]
+    D --> H[Suivi progression GPS ]
     H --> I[Mission terminée]
 ```
 
