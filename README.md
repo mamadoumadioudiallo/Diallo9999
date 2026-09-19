@@ -35,16 +35,24 @@ Application web de gestion de flotte (minier) IoT développée pour le corridor 
 5. Lancer sur XAMPP → http://localhost/fleet_iot
 
 ##  Structure
-fleet_iot/
-├── admin/          # Pages administrateur
-├── superviseur/    # Pages superviseur  
-├── conducteur/     # Pages conducteur
-├── api/            # Endpoints IoT REST
-├── includes/       # Config DB, auth, fonctions
-├── rapports/       # Export PDF/CSV
-├── simulation/     # Simulateur IoT
-└── database/       # Scripts SQL
+## 📁 Structure du projet
 
+```
+FleetIoT-Simandou-2040/
+├── 📂 admin/           # Pages administrateur
+├── 📂 superviseur/     # Pages superviseur
+├── 📂 conducteur/      # Pages conducteur
+├── 📂 api/             # Endpoints IoT REST
+├── 📂 includes/        # Config DB, auth, fonctions
+├── 📂 rapports/        # Export PDF/CSV
+├── 📂 simulation/      # Simulateur IoT
+├── 📂 assets/          # CSS, JS, images
+├── 📂 lib/             # Librairies (FPDF, PHPMailer)
+├── 📂 vendor/          # Composer
+├── 📄 index.php        # Page d'accueil
+├── 📄 connexion.php    # Authentification
+└── 📄 README.md        # Documentation
+```
 ## Auteur
 Mamadou Madiou Diallo — mamadoumadioudiallo@github — dmamadoumadiou61@gmail.com
 
