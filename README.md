@@ -46,7 +46,7 @@ fleet_iot/
 └── database/       # Scripts SQL
 
 ## Auteur
-Votre Nom — [LinkedIn] — [Email]
+Mamadou Madiou Diallo — mamadoumadioudiallo@github — dmamadoumadiou61@gmail.com
 
 ##  Licence
 MIT License
