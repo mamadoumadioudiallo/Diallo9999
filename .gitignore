@@ -1,3 +1,6 @@
 includes/db.php
 includes/mailer.php
 assets/uploads/
+includes/db.php
+includes/mailer.php
+includes/secrets.php
