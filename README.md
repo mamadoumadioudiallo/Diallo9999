@@ -37,22 +37,33 @@ Application web de gestion de flotte (minier) IoT développée pour le corridor 
 ##  Structure
 ## 📁 Structure du projet
 
+## 📁 Structure du projet
+
 ```
 FleetIoT-Simandou-2040/
-├── 📂 admin/           # Pages administrateur
-├── 📂 superviseur/     # Pages superviseur
-├── 📂 conducteur/      # Pages conducteur
-├── 📂 api/             # Endpoints IoT REST
-├── 📂 includes/        # Config DB, auth, fonctions
-├── 📂 rapports/        # Export PDF/CSV
-├── 📂 simulation/      # Simulateur IoT
-├── 📂 assets/          # CSS, JS, images
-├── 📂 lib/             # Librairies (FPDF, PHPMailer)
-├── 📂 vendor/          # Composer
-├── 📄 index.php        # Page d'accueil
-├── 📄 connexion.php    # Authentification
-└── 📄 README.md        # Documentation
-```
+├── 📂 admin/                    # Pages administrateur
+├── 📂 api/                      # Endpoints IoT REST
+├── 📂 assets/                   # CSS, JS, images
+├── 📂 backups/                  # Sauvegardes base de données
+├── 📂 conducteur/               # Pages conducteur
+├── 📂 includes/                 # Config DB, auth, fonctions
+├── 📂 lib/                      # Librairies (FPDF, PHPMailer)
+├── 📂 rapports/                 # Export PDF/CSV
+├── 📂 scripts/                  # Scripts utilitaires
+├── 📂 simulation/               # Simulateur IoT
+├── 📂 superviseur/              # Pages superviseur
+├── 📂 vendor/                   # Dépendances Composer
+├── 📂 websocket/                # Temps réel WebSocket
+├── 📄 connexion.php             # Authentification
+├── 📄 deconnexion.php           # Déconnexion
+├── 📄 index.php                 # Page d'accueil
+├── 📄 inscription.php           # Inscription utilisateur
+├── 📄 mot_de_passe_oublie.php   # Récupération mot de passe
+├── 📄 reinitialiser_mot_de_passe.php  # Réinitialisation
+├── 📄 verification_2fa.php      # Double authentification
+├── 📄 composer.json             # Dépendances PHP
+└── 📄 README.md                 # Documentation
+```s
 ## Auteur
 Mamadou Madiou Diallo — mamadoumadioudiallo@github — dmamadoumadiou61@gmail.com
 
