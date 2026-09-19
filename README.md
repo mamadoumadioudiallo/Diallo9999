@@ -19,19 +19,15 @@ Application web de gestion de flotte (minier) IoT développée pour le corridor 
 - **PDF** : FPDF
 - **Email** : PHPMailer
 
-##  Installation
-1. Cloner le repository
-   git clone Gestion de flotte : https://github.com/mamadoumadioudiallo/Systme-Internet-of-Things-pour-la-gestion-intelligente-des-flottes-de-transport-minier.git
+##  Accès au projet
 
-2. Copier les fichiers de config
-   cp includes/db.example.php includes/db.php
-   cp includes/mailer.example.php includes/mailer.php
+> Ce projet est en cours de développement actif.
+> Pour une démonstration ou un accès à la plateforme,
+> contactez-moi directement :
 
-
-3. Importer la base de données
-   mysql -u root -p fleet_iot_db < database/fleet_iot_db.sql
-
-4. Lancer sur XAMPP → http://localhost/fleet_iot
+📧 **Email :** dmamadoumadiou61@gmail.com  
+💼 **LinkedIn :** [Mamadou Madiou Diallo](votre_lien_linkedin)  
+🐙 **GitHub :** [mamadoumadioudiallo](https://github.com/mamadoumadioudiallo)
 
 ##  Structure
 ##  Structure du projet
