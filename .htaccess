@@ -1,0 +1,39 @@
+# ============================================================
+# FleetIoT — Projet Simandou 2040
+# Fichier : .htaccess (racine)
+# Rôle    : En-têtes de sécurité HTTP + durcissement des cookies
+#           de session, appliqués à l'ensemble du site
+# ============================================================
+
+<IfModule mod_headers.c>
+    # Empêche le site d'être affiché dans une <iframe> sur un autre site (clickjacking)
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Empêche le navigateur de "deviner" un type de fichier différent de celui déclaré
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Limite les informations envoyées dans l'en-tête Referer lors de la navigation externe
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Désactive l'accès à des fonctionnalités sensibles du navigateur non utilisées par le site
+    Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
+
+    # Content-Security-Policy : autorise uniquement les ressources nécessaires
+    # (CDN Leaflet/Chart.js utilisés par le dashboard, et les WebSockets locaux)
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org; connect-src 'self' ws://localhost:8080 https://unpkg.com https://cdn.jsdelivr.net; font-src 'self' data:;"
+</IfModule>
+
+# ====== DURCISSEMENT DES COOKIES DE SESSION ======
+# Ces réglages s'appliquent avant l'exécution du code PHP, donc peu importe
+# l'endroit où session_start() est appelé dans les scripts.
+<IfModule mod_php.c>
+    php_flag session.cookie_httponly On
+    php_value session.cookie_samesite "Lax"
+</IfModule>
+<IfModule php_module>
+    php_flag session.cookie_httponly On
+    php_value session.cookie_samesite "Lax"
+</IfModule>
+
+# Empêche l'affichage du contenu des dossiers sans fichier index
+Options -Indexes

@@ -1,0 +1,194 @@
+/* ============================================================
+   FleetIoT — Projet Simandou 2040
+   Fichier : assets/css/responsive.css
+   Rôle    : Adaptations mobile/tablette (zone privée + pages publiques)
+   ============================================================ */
+
+/* ====== BOUTON HAMBURGER (caché par défaut, visible en mobile) ====== */
+.dash-burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.dash-burger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--color-text-light);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+/* Animation en croix quand le menu est ouvert */
+.dash-burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.dash-burger.open span:nth-child(2) { opacity: 0; }
+.dash-burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ============================================================
+   TABLETTE (≤ 1024px)
+   ============================================================ */
+@media (max-width: 1024px) {
+    .dash-main { padding: 16px; }
+
+    /* Les tableaux larges deviennent défilables horizontalement
+       plutôt que de casser la mise en page */
+    .fleet-table-wrap {
+        overflow-x: auto;
+    }
+    .fleet-table-wrap table {
+        min-width: 640px;
+    }
+
+    /* Formulaires de filtre (rapports) passent en colonne */
+    .panel form[method="GET"] {
+        flex-wrap: wrap;
+    }
+}
+
+/* ============================================================
+   MOBILE (≤ 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+
+    /* ---- Menu mobile en tiroir déroulant ---- */
+    .dash-burger { display: flex; }
+
+    .dash-navbar { padding: 0 16px; }
+
+    .dash-navbar-menu {
+        display: none;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: var(--color-primary-dark);
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0;
+        box-shadow: var(--shadow-md);
+        z-index: 999;
+    }
+
+    .dash-navbar-menu.open {
+        display: flex;
+    }
+
+    .dash-navbar-menu li {
+        width: 100%;
+    }
+
+    .dash-navbar-menu a {
+        display: block;
+        padding: 12px 20px;
+        border-bottom: none;
+        border-left: 3px solid transparent;
+    }
+
+    .dash-navbar-menu a:hover,
+    .dash-navbar-menu a.active {
+        border-left-color: var(--color-accent);
+        background: rgba(255,255,255,0.05);
+    }
+
+    .dash-role-badge { display: none; }
+    .dash-user span { display: none; } /* garde juste l'avatar, gain de place */
+
+    /* ---- En-têtes de page ---- */
+    .dash-header-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .dash-actions {
+        flex-direction: column;
+    }
+
+    .dash-actions .btn-dash {
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* ---- KPI en une seule colonne ---- */
+    .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* ---- Carte + alertes empilées ---- */
+    .map-alerts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #map { height: 280px; }
+
+    /* ---- Panneaux avec recherche/filtre : passer en colonne ---- */
+    .panel-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .panel-header form[method="GET"] {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .panel-header .search-input,
+    .panel-header select {
+        width: 100% !important;
+    }
+
+    /* ---- Tableaux : défilement horizontal sur petit écran ---- */
+    .fleet-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .fleet-table-wrap table {
+        min-width: 560px;
+    }
+
+    /* ---- Modales d'ajout/édition (admin) ---- */
+    #modalAdd > div,
+    #modalEdit > div {
+        max-width: 92vw;
+        padding: 22px 18px;
+    }
+
+    .contact-grid,
+    .name-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* ---- Onglets de navigation entre rapports ---- */
+    .panel[style*="display:flex"] {
+        flex-wrap: wrap;
+    }
+
+    /* ---- Graphiques : hauteur réduite pour tenir sur l'écran ---- */
+    canvas { max-height: 240px; }
+}
+
+/* ============================================================
+   PAGES PUBLIQUES (accueil, connexion, inscription)
+   ============================================================ */
+@media (max-width: 600px) {
+    .auth-card {
+        padding: 32px 22px;
+    }
+
+    .auth-wrapper {
+        padding: 16px;
+    }
+
+    .back-home {
+        position: static;
+        display: inline-flex;
+        margin-bottom: 16px;
+    }
+}
